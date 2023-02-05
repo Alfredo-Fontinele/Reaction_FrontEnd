@@ -1,5 +1,5 @@
-import { Flex, Image, Input, InputGroup, InputLeftElement } from "@chakra-ui/react"
-import { SearchIcon } from "@chakra-ui/icons"
+import { Flex, Image, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { SearchIcon } from '@chakra-ui/icons'
 
 export const SearchInput = () => {
     return (
@@ -21,7 +21,7 @@ export const SearchInput = () => {
                 />
                 <Input
                     type='search' 
-                    placeholder='Pesquisar no Facebook' 
+                    placeholder='Pesquisar no Reaction' 
                     border={'none'}
                     borderRadius={20}
                     fontSize={13}
