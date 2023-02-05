@@ -1,37 +1,76 @@
-import { useMediaQuery, Flex, Text, Image, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
-import { SearchInput } from './../search-input/index'
-import { MenuIcons } from './../menu-icons/index'
-import { MenuUser } from './../menu-user/index'
-import { MenuHamburguerIcon } from '../icons'
+import React, { ReactNode } from 'react'
+import {
+  IconButton,
+  Avatar,
+  Box,
+  CloseButton,
+  Flex,
+  HStack,
+  VStack,
+  Icon,
+  useColorModeValue,
+  Link,
+  Drawer,
+  DrawerContent,
+  Text,
+  useDisclosure,
+  BoxProps,
+  FlexProps,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuItem,
+  MenuList,
+} from '@chakra-ui/react'
+import {
+  FiHome,
+  FiTrendingUp,
+  FiCompass,
+  FiStar,
+  FiSettings,
+  FiMenu,
+  FiBell,
+  FiChevronDown,
+} from 'react-icons/fi'
+import { IconType } from 'react-icons'
+import { ReactText } from 'react'
+import { SidebarContent } from '../sidebar-content'
+import { MobileNav } from '../mobile-nav'
+
+interface LinkItemProps {
+  name: string
+  icon: IconType
+}
+
+export const LinkItems: Array<LinkItemProps> = [
+  { name: 'Home', icon: FiHome },
+  { name: 'Trending', icon: FiTrendingUp },
+  { name: 'Explore', icon: FiCompass },
+  { name: 'Favourites', icon: FiStar },
+  { name: 'Settings', icon: FiSettings },
+]
 
 export const Header = () => {
-    const [isBiggerThan950px] = useMediaQuery('(min-width: 950px)')
-    const [isBiggerThan820px] = useMediaQuery('(min-width: 820px)')
-
+    const { isOpen, onOpen, onClose } = useDisclosure()
     return (
-        <Flex
-            w={'full'}
-            p={'10px 1rem'}
-            gap={3}
-            maxH={'60px'}
-            bgColor='#18191a'
-            justifyContent={'space-between'}
-            alignItems={'center'}
-        >
-            <SearchInput/>
-            {
-                isBiggerThan950px ? (
-                    <>
-                        <MenuIcons/>
-                        <MenuUser/>
-                    </>
-                ) :
-                isBiggerThan820px ? (
-                    <MenuIcons/>
-                ) : (
-                    <MenuHamburguerIcon/>
-                )
-            }
-        </Flex>
+      <Box minH="100vh" >
+        <SidebarContent
+          onClose={() => onClose}
+          display={{ base: 'none', md: 'block' }}
+        />
+        <Drawer
+          autoFocus={false}
+          isOpen={isOpen}
+          placement="left"
+          onClose={onClose}
+          returnFocusOnClose={false}
+          onOverlayClick={onClose}
+          size="full">
+          <DrawerContent>
+            <SidebarContent onClose={onClose} />
+          </DrawerContent>
+        </Drawer>
+        <MobileNav onOpen={onOpen} />
+      </Box>
     )
 }

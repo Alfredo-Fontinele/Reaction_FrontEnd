@@ -11,7 +11,7 @@ const theme = extendTheme({
   components: {
     ContainerConfigStyle,
     BodyConfigStyle
-  },
+  }
 })
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
