@@ -20,7 +20,7 @@ export const SearchInput = () => {
                     children={<SearchIcon color='gray.300' />}
                 />
                 <Input
-                    type='search' 
+                    type='search'
                     placeholder='Pesquisar no Reaction' 
                     border={'none'}
                     borderRadius={20}

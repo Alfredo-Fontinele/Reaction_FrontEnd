@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
 import React from 'react'
+import { ApiProvider } from './../context/useApi';
 
 const theme = extendTheme({
   components: {
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
       <ChakraProvider theme={theme}>
         <GlobalStyle>
-          <App />
+          <ApiProvider>
+            <App />
+          </ApiProvider>
         </GlobalStyle>
       </ChakraProvider>
     </BrowserRouter>

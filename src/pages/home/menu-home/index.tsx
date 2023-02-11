@@ -13,19 +13,13 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import { FiChevronsDown, FiMenu } from "react-icons/fi";
-import { IMobileOpenProps } from "../../interfaces";
-import { colorMenuItem } from "../../styles/global/style";
-import { MenuItems } from "./../menu-items/index";
+import { MenuItems } from "../../../components/menu-items";
+import { IMobileOpenProps } from "../../../interfaces";
+import { colorMenuItem } from "../../../styles/global/style";
 
-const ListMenuOptions = [
-    { name: "Profile" },
-    { name: "Settings" },
-    { name: "Billigins" },
-    { name: "Help" },
-    { name: "Sign Out" },
-];
+const ListMenuOptions = [{ name: "Login" }, { name: "Register" }];
 
-export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
+export const MobileHome = ({ onOpen, ...rest }: IMobileOpenProps) => {
     return (
         <Flex
             ml={{ base: 0, md: 60 }}
@@ -36,18 +30,6 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
             justifyContent={{ base: "space-between", md: "flex-end" }}
             {...rest}
         >
-            <IconButton
-                display={{ base: "flex", md: "none" }}
-                border="2px solid #fff"
-                backgroundColor="transparent"
-                onClick={onOpen}
-                aria-label="open menu"
-                _hover={{
-                    border: "2px solid slateblue",
-                    backgroundColor: "slateblue",
-                }}
-                icon={<FiMenu />}
-            />
             <Text
                 display={{ base: "flex", md: "none" }}
                 fontSize="2xl"
@@ -91,6 +73,18 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
                     </Menu>
                 </Flex>
             </HStack>
+            <IconButton
+                display={{ base: "flex", md: "none" }}
+                border="2px solid #fff"
+                backgroundColor="transparent"
+                onClick={onOpen}
+                aria-label="open menu"
+                _hover={{
+                    border: "2px solid slateblue",
+                    backgroundColor: "slateblue",
+                }}
+                icon={<FiMenu />}
+            />
         </Flex>
     );
 };

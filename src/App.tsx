@@ -1,9 +1,10 @@
-import { Header } from "./components/header"
+import { RoutesGlobal } from "./routes/index";
+import { Flex } from "@chakra-ui/react";
 
 export const App = () => {
-  return (
-    <>
-      <Header />
-    </>
-  )
-}
+    return (
+        <>
+            <RoutesGlobal />
+        </>
+    );
+};
