@@ -1,31 +1,13 @@
-import { FormHome } from "./form-home/index.";
-import { ListNews } from "./list-news/index";
-import { MobileHome } from "./menu-home";
-import { Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
+import { Flex, useDisclosure } from "@chakra-ui/react";
+import { Header } from "./header";
+import { ListNews } from "./list-news";
 
 export const Home = () => {
-    const { isOpen, onClose, onOpen } = useDisclosure();
+    const { onOpen } = useDisclosure();
     return (
-        <>
-            <FormHome
-                onClose={() => onClose}
-                display={{ base: "none", md: "block" }}
-            />
-            <Drawer
-                autoFocus={false}
-                isOpen={isOpen}
-                placement="left"
-                onClose={onClose}
-                returnFocusOnClose={false}
-                onOverlayClick={onClose}
-                size="full"
-            >
-                <DrawerContent>
-                    <FormHome onClose={onClose} />
-                </DrawerContent>
-            </Drawer>
-            <MobileHome onOpen={onOpen} />
+        <Flex flexDir={"column"}>
+            <Header onOpen={onOpen} />
             <ListNews />
-        </>
+        </Flex>
     );
 };

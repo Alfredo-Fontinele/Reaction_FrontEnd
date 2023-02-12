@@ -26,10 +26,12 @@ export const ListNews = () => {
     return (
         <Flex
             key={crypto.randomUUID()}
-            flexWrap={"wrap"}
-            justifyContent="center"
             gap={10}
-            p={"2rem 1rem"}
+            p={"3rem 1rem"}
+            maxW={"2000px"}
+            justifyContent="center"
+            flexWrap={"wrap"}
+            m={"auto"}
         >
             {newsArticles.length ? (
                 newsArticles.map((newsArticle) => (
@@ -43,29 +45,27 @@ export const ListNews = () => {
                             transform: "scale(1.02)",
                         }}
                         flexDirection="column"
-                        maxW={600}
+                        maxW={450}
                         border={"1px solid #ccc"}
                         borderRadius={10}
                         justifyContent="space-between"
-                        gap={10}
-                        p={7}
+                        gap={5}
+                        p={5}
                     >
-                        <Text fontSize={28} fontWeight={"500"}>
+                        <Text fontSize={21} fontWeight={"500"}>
                             {newsArticle.title}
                         </Text>
                         <Image
-                            w={"full"}
-                            h={300}
                             backgroundSize={"contain"}
                             src={newsArticle.urlToImage ?? otherImage}
                             alt={newsArticle.url}
                         />
                         <Flex flexDirection="column" gap={5}>
-                            <Text fontSize={20} fontWeight={"500"}>
+                            <Text fontSize={17} fontWeight={"500"}>
                                 {newsArticle.content}
                             </Text>
                             <Flex gap={3}>
-                                <Text fontSize={17} fontWeight={"400"}>
+                                <Text fontSize="sm" fontWeight={"400"}>
                                     Author:
                                 </Text>
                                 <Text fontSize={17} fontWeight={"500"}>

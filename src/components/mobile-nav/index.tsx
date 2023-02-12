@@ -14,7 +14,6 @@ import {
 } from "@chakra-ui/react";
 import { FiChevronsDown, FiMenu } from "react-icons/fi";
 import { IMobileOpenProps } from "../../interfaces";
-import { colorMenuItem } from "../../styles/global/style";
 import { MenuItems } from "./../menu-items/index";
 
 const ListMenuOptions = [
@@ -77,13 +76,15 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
                                     spacing="1px"
                                     ml="2"
                                 >
-                                    <Text fontSize="sm">Alfredo Neto</Text>
+                                    <Text fontSize="sm" color={"#eaeaea"}>
+                                        Alfredo Neto
+                                    </Text>
                                     <Text fontSize="xs" color="gray.100">
                                         Admin
                                     </Text>
                                 </VStack>
                                 <Box display={{ base: "none", md: "flex" }}>
-                                    <FiChevronsDown />
+                                    <FiChevronsDown color={"#eaeaea"} />
                                 </Box>
                             </HStack>
                         </MenuButton>
