@@ -72,7 +72,7 @@ export const Header = ({ onOpen, ...rest }: IMobileOpenProps) => {
                     </Text>
                 </Flex>
                 <Flex alignItems={"center"} justifyContent="center" gap={2}>
-                    <FormHome />
+                    <FormHome base="none" md="flex" />
                     <MenuMobileHome />
                 </Flex>
             </Flex>

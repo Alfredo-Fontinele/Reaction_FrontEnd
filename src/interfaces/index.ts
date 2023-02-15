@@ -2,10 +2,6 @@ import { BoxProps, FlexProps } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 import { IconType } from "react-icons";
 
-export interface IVariantChakra extends React.PropsWithChildren {
-    variant: string;
-}
-
 export interface IComponentChakra extends React.PropsWithChildren {}
 
 export interface LinkItemProps {
@@ -23,4 +19,9 @@ export interface IMobileCloseProps extends BoxProps {
 
 export interface IMobileOpenProps extends FlexProps {
     onOpen: () => void;
+}
+
+export interface IItemMenuOptions {
+    name: string;
+    href: string;
 }

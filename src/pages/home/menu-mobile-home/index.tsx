@@ -1,8 +1,12 @@
 import { HStack, IconButton, Menu, MenuButton } from "@chakra-ui/react";
 import { MenuItems } from "../../../components/menu-items";
+import { IItemMenuOptions } from "../../../interfaces";
 import { FiMenu } from "react-icons/fi";
 
-const ListMenuOptions = [{ name: "Login" }, { name: "Register" }];
+const ListMenuOptions: IItemMenuOptions[] = [
+    { name: "Login", href: "/login" },
+    { name: "Register", href: "/register" },
+];
 
 export const MenuMobileHome = () => {
     return (

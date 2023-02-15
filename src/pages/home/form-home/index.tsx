@@ -1,17 +1,23 @@
-import { Button, FormControl, Input, useMediaQuery } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { Button, FormControl, Input } from "@chakra-ui/react";
 import { useAPI } from "../../../../context/useApi";
+import { AiOutlineSearch } from "react-icons/ai";
+import { useEffect, useRef } from "react";
 
-export const FormHome = () => {
-    const [isSmallerThan1100px] = useMediaQuery("(min-width: 1100px)");
-    const { searchNewsInApi, setNewsArticles } = useAPI();
+interface IFormHomeProps {
+    base: string;
+    md: string;
+}
+
+export const FormHome = ({ base, md }: IFormHomeProps) => {
+    const { searchNewsInApi, setNewsArticles, setIsLoading } = useAPI();
     const text = useRef<HTMLInputElement | null>(null);
 
     const handleSubmit = async () => {
+        setIsLoading(true);
         const textSubmit = text.current!.value;
         const resultData = await searchNewsInApi(textSubmit);
         setNewsArticles(resultData);
+        setIsLoading(false);
     };
 
     useEffect(() => {
@@ -19,13 +25,12 @@ export const FormHome = () => {
     }, [text]);
 
     return (
-        <FormControl display={{ base: "none", md: "flex" }} gap={2}>
+        <FormControl display={{ base: base, md: md }} gap={2}>
             <Input
                 ref={text}
                 type="text"
                 placeholder="Digite sua pesquisa"
                 required
-                maxW={400}
                 color={"#eaeaea"}
             />
             <Button

@@ -13,15 +13,15 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import { FiChevronsDown, FiMenu } from "react-icons/fi";
-import { IMobileOpenProps } from "../../interfaces";
+import { IItemMenuOptions, IMobileOpenProps } from "../../interfaces";
 import { MenuItems } from "./../menu-items/index";
 
-const ListMenuOptions = [
-    { name: "Profile" },
-    { name: "Settings" },
-    { name: "Billigins" },
-    { name: "Help" },
-    { name: "Sign Out" },
+const ListMenuOptions: IItemMenuOptions[] = [
+    { name: "Profile", href: "" },
+    { name: "Settings", href: "" },
+    { name: "Billigins", href: "" },
+    { name: "Help", href: "" },
+    { name: "Sign Out", href: "" },
 ];
 
 export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
