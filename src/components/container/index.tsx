@@ -1,7 +1,7 @@
 import { Box, useStyleConfig } from "@chakra-ui/react";
 import React from "react";
 
-type IVariantType = "default" | "primary" | "secondary";
+type IVariantType = "default" | "primary" | "secondary" | "transparent";
 
 export interface IVariantChakra extends React.PropsWithChildren {
     variant: IVariantType;

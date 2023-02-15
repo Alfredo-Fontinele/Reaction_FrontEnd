@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { FiChevronsDown, FiMenu } from "react-icons/fi";
 import { IItemMenuOptions, IMobileOpenProps } from "../../interfaces";
+import { Colors } from "../../styles/colors";
 import { MenuItems } from "./../menu-items/index";
 
 const ListMenuOptions: IItemMenuOptions[] = [
@@ -31,19 +32,19 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
             px={{ base: 4, md: 4 }}
             height="20"
             alignItems="center"
-            bg={"rgb(10, 20, 30)"}
+            bg={Colors.dark}
             justifyContent={{ base: "space-between", md: "flex-end" }}
             {...rest}
         >
             <IconButton
                 display={{ base: "flex", md: "none" }}
-                border="2px solid #fff"
+                border={`2px solid ${Colors.default}`}
                 backgroundColor="transparent"
                 onClick={onOpen}
                 aria-label="open menu"
                 _hover={{
-                    border: "2px solid slateblue",
-                    backgroundColor: "slateblue",
+                    border: `2px solid ${Colors.slate}`,
+                    backgroundColor: Colors.slate,
                 }}
                 icon={<FiMenu />}
             />
@@ -76,7 +77,7 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
                                     spacing="1px"
                                     ml="2"
                                 >
-                                    <Text fontSize="sm" color={"#eaeaea"}>
+                                    <Text fontSize="sm" color={Colors.default}>
                                         Alfredo Neto
                                     </Text>
                                     <Text fontSize="xs" color="gray.100">
@@ -84,7 +85,7 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
                                     </Text>
                                 </VStack>
                                 <Box display={{ base: "none", md: "flex" }}>
-                                    <FiChevronsDown color={"#eaeaea"} />
+                                    <FiChevronsDown color={Colors.default} />
                                 </Box>
                             </HStack>
                         </MenuButton>

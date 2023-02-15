@@ -1,4 +1,5 @@
 import { defineStyleConfig } from "@chakra-ui/react";
+import { Colors } from "../colors/index";
 
 export const BodyConfigStyle = defineStyleConfig({
     baseStyle: {
@@ -9,6 +10,15 @@ export const BodyConfigStyle = defineStyleConfig({
         minH: "100vh",
         fontFamily: "poppins",
     },
+    variants: {
+        default: {
+            bgColor: Colors.default,
+        },
+        primary: {
+            bgColor: Colors.menuItem,
+        },
+        secondary: {
+            bgColor: Colors.gray1,
+        },
+    },
 });
-
-export const colorMenuItem = "rgb(20, 40, 70)";

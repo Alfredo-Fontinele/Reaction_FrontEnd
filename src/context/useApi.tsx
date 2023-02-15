@@ -1,7 +1,7 @@
+import { INewArticle } from "./../pages/home/list-news/index";
 import { createContext, useContext, useState } from "react";
-import { API, API_KEY } from "./../src/services/index";
-import { INewArticle } from "../src/pages/home/list-news";
-import { getDateNow } from "./../src/utils/getDateNow";
+import { getDateNow } from "../utils/getDateNow";
+import { API, API_KEY } from "../services";
 import { toast } from "react-toastify";
 import React from "react";
 

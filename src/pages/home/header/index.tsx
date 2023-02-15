@@ -13,18 +13,23 @@ import {
     MenuItem,
     MenuList,
     Text,
+    useColorMode,
     VStack,
 } from "@chakra-ui/react";
 import { FormEvent, useEffect, useRef } from "react";
 import { RiNewspaperFill } from "react-icons/ri";
 import { FiChevronsDown, FiMenu } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useAPI } from "../../../../context/useApi";
 import { FormComponent } from "../../../components/form";
 import { IMobileOpenProps } from "../../../interfaces";
 import { MenuItems } from "./../../../components/menu-items/index";
 import { MenuMobileHome } from "../menu-mobile-home";
 import { FormHome } from "./../form-home/index";
+import { useAPI } from "../../../context/useApi";
+import { Colors } from "./../../../styles/colors/index";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { ThemeIcon } from "./../../../components/theme-icon/index";
+import { TitleHeader } from "./../title-header/index";
 
 export const Header = ({ onOpen, ...rest }: IMobileOpenProps) => {
     const { searchNewsInApi, setNewsArticles } = useAPI();
@@ -43,38 +48,29 @@ export const Header = ({ onOpen, ...rest }: IMobileOpenProps) => {
     return (
         <Flex
             w={"full"}
-            bg={"rgb(10, 20, 30)"}
+            bg={Colors.menuItem}
             justifyContent="center"
             alignItems="center"
+            gap={10}
+            p={"0 1rem"}
         >
             <Flex
-                justifyContent={"space-between"}
                 alignItems={"center"}
-                gap={5}
+                justifyContent="flex-start"
                 w={"full"}
-                maxW={2000}
-                p={"0 1rem"}
+                gap={10}
             >
-                <Flex gap={3}>
-                    <RiNewspaperFill
-                        style={{
-                            fontSize: 35,
-                            color: "#eaeaea",
-                        }}
-                    />
-                    <Text
-                        display={{ base: "flex" }}
-                        fontSize="2xl"
-                        fontWeight={"500"}
-                        color="#eaeaea"
-                    >
-                        News Reaction
-                    </Text>
-                </Flex>
-                <Flex alignItems={"center"} justifyContent="center" gap={2}>
-                    <FormHome base="none" md="flex" />
-                    <MenuMobileHome />
-                </Flex>
+                <TitleHeader title="News Reaction" />
+                <FormHome base="none" md="flex" />
+            </Flex>
+            <Flex
+                alignItems={"center"}
+                w={"full"}
+                justifyContent="flex-end"
+                gap={4}
+            >
+                <ThemeIcon />
+                <MenuMobileHome />
             </Flex>
         </Flex>
     );

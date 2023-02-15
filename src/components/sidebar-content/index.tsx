@@ -2,6 +2,7 @@ import { Box, BoxProps, CloseButton, Flex, Text } from "@chakra-ui/react";
 import { IMobileCloseProps } from "../../interfaces";
 import { LinkItems } from "../../pages/dashboard";
 import { NavItem } from "../nav-item";
+import { Colors } from "./../../styles/colors/index";
 
 export const SidebarContent = ({ onClose, ...rest }: IMobileCloseProps) => {
     return (
@@ -10,7 +11,7 @@ export const SidebarContent = ({ onClose, ...rest }: IMobileCloseProps) => {
             w={{ base: "full", md: 60 }}
             pos="fixed"
             h="full"
-            bg={"rgb(20, 40, 70)"}
+            bg={Colors.menuItem}
             {...rest}
         >
             <Flex

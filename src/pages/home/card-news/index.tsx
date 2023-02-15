@@ -1,8 +1,7 @@
 import { Flex, Image, Link, Text } from "@chakra-ui/react";
 import { INewArticle } from "./../list-news/index";
-
-const otherImage =
-    "https://www.irossi.com.br/rossi/assets/images/illustration/man-searching-at.svg";
+import otherImage from "../../../../src/assets/man-searching-at.svg";
+import { Colors } from "../../../styles/colors";
 
 interface ICardNewsProps {
     newsArticle: INewArticle;
@@ -22,18 +21,20 @@ export const CardNews = ({ newsArticle }: ICardNewsProps) => {
             flexDirection="column"
             w="full"
             maxW={400}
-            border={"1px solid #ccc"}
+            border={`1px solid ${Colors.white_gray3}`}
             borderRadius={10}
             justifyContent="space-between"
             gap={5}
             p={5}
         >
             <Text fontSize="large" fontWeight={"500"}>
-                {newsArticle.title ?? "Sem Título"}
+                {newsArticle.title ? newsArticle.title : "Sem Título"}
             </Text>
             <Image
-                src={newsArticle.urlToImage ?? otherImage}
-                alt={newsArticle.url}
+                src={
+                    newsArticle.urlToImage ? newsArticle.urlToImage : otherImage
+                }
+                alt={newsArticle.url ? newsArticle.url : newsArticle.title}
             />
             <Flex flexDirection="column" gap={5}>
                 <Text fontSize={17} fontWeight={"500"} textAlign="justify">
@@ -50,7 +51,9 @@ export const CardNews = ({ newsArticle }: ICardNewsProps) => {
                         overflow={"hidden"}
                         textOverflow={"ellipsis"}
                     >
-                        {newsArticle.author ?? "Desconhecido"}
+                        {newsArticle.author
+                            ? newsArticle.author
+                            : "Desconhecido"}
                     </Text>
                 </Flex>
             </Flex>

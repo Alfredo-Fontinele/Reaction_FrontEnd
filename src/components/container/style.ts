@@ -1,4 +1,5 @@
 import { defineStyleConfig } from "@chakra-ui/react";
+import { Colors } from "./../../styles/colors/index";
 
 export const ContainerConfigStyle = defineStyleConfig({
     baseStyle: {
@@ -10,14 +11,17 @@ export const ContainerConfigStyle = defineStyleConfig({
         margin: "auto",
     },
     variants: {
+        transparent: {
+            bgColor: "transparent",
+        },
         default: {
-            bgColor: "#eaeaea",
+            bgColor: Colors.default,
         },
         primary: {
-            bgColor: "rgb(20,30,40)",
+            bgColor: Colors.menuItem,
         },
         secondary: {
-            bgColor: "#333",
+            bgColor: Colors.gray1,
         },
     },
 });

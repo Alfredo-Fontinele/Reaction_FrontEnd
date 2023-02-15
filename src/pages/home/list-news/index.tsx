@@ -1,9 +1,8 @@
-import { Loading } from "../../../components/loading/index";
-import { Flex, Image, Link, Text } from "@chakra-ui/react";
-import { useAPI } from "../../../../context/useApi";
-import { useState } from "react";
 import { NotFoundSearch } from "./../../../components/not-found-search/index";
+import { Flex, Image, Link, Text } from "@chakra-ui/react";
+import { useAPI } from "../../../context/useApi";
 import { CardNews } from "./../card-news/index";
+import { useState } from "react";
 
 interface ISource {
     id: null | boolean;
