@@ -31,9 +31,7 @@ export const CardNews = ({ newsArticle }: ICardNewsProps) => {
                 {newsArticle.title ? newsArticle.title : "Sem Título"}
             </Text>
             <Image
-                src={
-                    newsArticle.urlToImage ? newsArticle.urlToImage : otherImage
-                }
+                src={newsArticle.imageUrl ? newsArticle.imageUrl : otherImage}
                 alt={newsArticle.url ? newsArticle.url : newsArticle.title}
             />
             <Flex flexDirection="column" gap={5}>

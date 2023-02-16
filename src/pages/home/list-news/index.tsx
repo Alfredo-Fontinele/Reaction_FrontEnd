@@ -9,15 +9,27 @@ interface ISource {
     name: string;
 }
 
+// export interface INewArticle {
+//     author: string;
+//     content: string;
+//     description: string;
+//     publishedAt: Date;
+//     source: ISource;
+//     title: string;
+//     url: string;
+//     urlToImage: string;
+// }
+
 export interface INewArticle {
+    id: string;
     author: string;
     content: string;
-    description: string;
-    publishedAt: Date;
-    source: ISource;
+    date: string;
+    imageUrl: string;
+    readMoreUrl: string;
+    time: string;
     title: string;
     url: string;
-    urlToImage: string;
 }
 
 export const ListNews = () => {

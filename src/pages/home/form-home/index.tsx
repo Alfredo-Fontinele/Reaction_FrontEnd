@@ -40,7 +40,7 @@ export const FormHome = ({ base, md }: IFormHomeProps) => {
             <Input
                 ref={text}
                 type="search"
-                placeholder="Digite sua pesquisa"
+                placeholder="Pesquise por politics, world, all ..."
                 required
                 color={Colors.default}
                 bg={Colors.menuItem}

@@ -1,7 +1,7 @@
 import { INewArticle } from "./../pages/home/list-news/index";
 import { createContext, useContext, useState } from "react";
 import { getDateNow } from "../utils/getDateNow";
-import { API, API_KEY } from "../services";
+import { API } from "../services";
 import { toast } from "react-toastify";
 import React from "react";
 
@@ -22,15 +22,13 @@ export const ApiProvider = ({ children }: React.PropsWithChildren) => {
     const searchNewsInApi = async (searchValue: string) => {
         const dateNow = getDateNow();
         const {
-            data: { articles },
-        } = await API.get(
-            `?q=${searchValue}&pageSize=20&from=${dateNow}&sortBy=publishedAt&apiKey=${API_KEY}`
-        );
-        if (!articles.length) {
+            data: { data },
+        } = await API.get(`news?category=${searchValue}`);
+        if (!data.length) {
             // toast.success("Show. Manda Bala 🚀");
             toast.error("Nada Encontrado");
         }
-        return articles;
+        return data;
     };
 
     return (

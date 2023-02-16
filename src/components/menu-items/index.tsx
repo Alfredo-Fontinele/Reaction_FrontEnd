@@ -11,7 +11,7 @@ export const MenuItems = ({ menuOptions }: IListMenuOptions) => {
     return (
         <MenuList bg={Colors.menuItem} border="none" p={2}>
             {menuOptions.map((option) => (
-                <Link to={option.href}>
+                <Link to={option.href} key={crypto.randomUUID()}>
                     <MenuItem
                         bg={Colors.menuItem}
                         p={3}
