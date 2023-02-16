@@ -1,5 +1,4 @@
-import { ContainerComponent } from "./../../components/container/index";
-import { Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { Container, Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { Loading } from "../../components/loading";
 import { useAPI } from "../../context/useApi";
 import { ListNews } from "./list-news";
@@ -7,11 +6,11 @@ import { FormHome } from "./form-home";
 import { Header } from "./header";
 
 export const Home = () => {
-    const { onOpen } = useDisclosure();
     const { isLoading } = useAPI();
+    document.title = "Home";
     return (
         <Flex flexDir={"column"}>
-            <Header onOpen={onOpen} />
+            <Header type="header" />
             <Flex
                 p={"1rem"}
                 justifyContent={"center"}
@@ -24,9 +23,9 @@ export const Home = () => {
                 <FormHome base="flex" md="none" />
             </Flex>
             {!!isLoading && <Loading />}
-            <ContainerComponent variant="transparent">
+            <Container maxW="8xl">
                 <ListNews />
-            </ContainerComponent>
+            </Container>
         </Flex>
     );
 };

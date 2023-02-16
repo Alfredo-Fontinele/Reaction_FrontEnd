@@ -22,7 +22,7 @@ const ListMenuOptions: IItemMenuOptions[] = [
     { name: "Settings", href: "" },
     { name: "Billigins", href: "" },
     { name: "Help", href: "" },
-    { name: "Sign Out", href: "" },
+    { name: "Sign Out", href: "/login" },
 ];
 
 export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
@@ -41,6 +41,7 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
                 border={`2px solid ${Colors.default}`}
                 backgroundColor="transparent"
                 onClick={onOpen}
+                color={Colors.default}
                 aria-label="open menu"
                 _hover={{
                     border: `2px solid ${Colors.slate}`,
@@ -53,6 +54,7 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
                 fontSize="2xl"
                 fontFamily="monospace"
                 fontWeight="bold"
+                color={Colors.default}
             >
                 Reaction
             </Text>

@@ -2,10 +2,10 @@ import { Flex, Link, Icon } from "@chakra-ui/react";
 import { NavItemProps } from "../../interfaces";
 import { Colors } from "../../styles/colors";
 
-export const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+export const NavItem = ({ href, icon, children, ...rest }: NavItemProps) => {
     return (
         <Link
-            href="#"
+            href={href}
             style={{ textDecoration: "none" }}
             _focus={{ boxShadow: "none" }}
         >

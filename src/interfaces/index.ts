@@ -4,12 +4,14 @@ import { IconType } from "react-icons";
 
 export interface IComponentChakra extends React.PropsWithChildren {}
 
-export interface LinkItemProps {
+export interface ILinkItemProps {
     name: string;
     icon: IconType;
+    href: string;
 }
 
 export interface NavItemProps extends FlexProps, PropsWithChildren {
+    href: string;
     icon: IconType;
 }
 

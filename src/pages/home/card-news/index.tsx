@@ -17,6 +17,8 @@ export const CardNews = ({ newsArticle }: ICardNewsProps) => {
             transition={"all 0.3s"}
             _hover={{
                 transform: "scale(1.02)",
+                color: Colors.slate,
+                border: `1px solid ${Colors.slate}`,
             }}
             flexDirection="column"
             w="full"

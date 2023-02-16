@@ -4,8 +4,10 @@ import { getDateNow } from "../utils/getDateNow";
 import { API } from "../services";
 import { toast } from "react-toastify";
 import React from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface IContextUseAPI {
+    navigate: (to: string) => void;
     searchNewsInApi: (searchValue: string) => Promise<any>;
     newsArticles: INewArticle[];
     setNewsArticles: React.Dispatch<React.SetStateAction<INewArticle[]>>;
@@ -18,6 +20,8 @@ const ContextUseAPI = createContext<IContextUseAPI>({} as IContextUseAPI);
 export const ApiProvider = ({ children }: React.PropsWithChildren) => {
     const [newsArticles, setNewsArticles] = useState<INewArticle[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     const searchNewsInApi = async (searchValue: string) => {
         const dateNow = getDateNow();
@@ -34,6 +38,7 @@ export const ApiProvider = ({ children }: React.PropsWithChildren) => {
     return (
         <ContextUseAPI.Provider
             value={{
+                navigate,
                 searchNewsInApi,
                 isLoading,
                 setIsLoading,

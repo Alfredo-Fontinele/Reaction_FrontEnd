@@ -22,32 +22,9 @@ import {
     MenuItem,
     MenuList,
 } from "@chakra-ui/react";
-import {
-    FiHome,
-    FiTrendingUp,
-    FiCompass,
-    FiStar,
-    FiSettings,
-    FiMenu,
-    FiBell,
-    FiChevronDown,
-} from "react-icons/fi";
 import { IconType } from "react-icons";
 import { SidebarContent } from "../../components/sidebar-content";
 import { MobileNav } from "../../components/mobile-nav";
-
-interface LinkItemProps {
-    name: string;
-    icon: IconType;
-}
-
-export const LinkItems: LinkItemProps[] = [
-    { name: "Home", icon: FiHome },
-    { name: "Trending", icon: FiTrendingUp },
-    { name: "Explore", icon: FiCompass },
-    { name: "Favourites", icon: FiStar },
-    { name: "Settings", icon: FiSettings },
-];
 
 export const Dashboard = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();

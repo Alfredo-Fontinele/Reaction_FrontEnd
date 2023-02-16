@@ -6,6 +6,7 @@ import { FiMenu } from "react-icons/fi";
 const ListMenuOptions: IItemMenuOptions[] = [
     { name: "Login", href: "/login" },
     { name: "Register", href: "/register" },
+    { name: "Home", href: "/" },
 ];
 
 export const MenuMobileHome = () => {

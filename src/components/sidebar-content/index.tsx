@@ -1,8 +1,25 @@
+import {
+    FiHome,
+    FiTrendingUp,
+    FiCompass,
+    FiStar,
+    FiSettings,
+    FiMenu,
+    FiBell,
+    FiChevronDown,
+} from "react-icons/fi";
 import { Box, BoxProps, CloseButton, Flex, Text } from "@chakra-ui/react";
-import { IMobileCloseProps } from "../../interfaces";
-import { LinkItems } from "../../pages/dashboard";
+import { IMobileCloseProps, ILinkItemProps } from "../../interfaces";
 import { NavItem } from "../nav-item";
 import { Colors } from "./../../styles/colors/index";
+
+export const LinkItems: ILinkItemProps[] = [
+    { name: "Home", icon: FiHome, href: "/" },
+    { name: "Trending", icon: FiTrendingUp, href: "" },
+    { name: "Explore", icon: FiCompass, href: "" },
+    { name: "Favourites", icon: FiStar, href: "" },
+    { name: "Settings", icon: FiSettings, href: "" },
+];
 
 export const SidebarContent = ({ onClose, ...rest }: IMobileCloseProps) => {
     return (
@@ -20,22 +37,22 @@ export const SidebarContent = ({ onClose, ...rest }: IMobileCloseProps) => {
                 mx="8"
                 justifyContent="space-between"
             >
-                <Text
-                    fontSize="2xl"
-                    fontFamily="monospace"
-                    fontWeight="bold"
-                    color="#fff"
-                >
+                <Text fontSize="2xl" color={Colors.default}>
                     Reaction
                 </Text>
                 <CloseButton
-                    color="#fff"
+                    color={Colors.default}
                     display={{ base: "flex", md: "none" }}
                     onClick={onClose}
                 />
             </Flex>
             {LinkItems.map((link) => (
-                <NavItem color="#fff" key={link.name} icon={link.icon}>
+                <NavItem
+                    href={link.href}
+                    color="#fff"
+                    key={link.name}
+                    icon={link.icon}
+                >
                     {link.name}
                 </NavItem>
             ))}

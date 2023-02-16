@@ -14,6 +14,7 @@ import {
     MenuList,
     Text,
     useColorMode,
+    useDisclosure,
     VStack,
 } from "@chakra-ui/react";
 import { FormEvent, useEffect, useRef } from "react";
@@ -31,7 +32,14 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { ThemeIcon } from "./../../../components/theme-icon/index";
 import { TitleHeader } from "./../title-header/index";
 
-export const Header = ({ onOpen, ...rest }: IMobileOpenProps) => {
+type TypeHeader = "header";
+
+interface IHeader {
+    type?: TypeHeader;
+}
+
+export const Header = ({ type }: IHeader) => {
+    const { onOpen } = useDisclosure();
     const { searchNewsInApi, setNewsArticles } = useAPI();
     const text = useRef<HTMLInputElement | null>(null);
 
@@ -61,7 +69,7 @@ export const Header = ({ onOpen, ...rest }: IMobileOpenProps) => {
                 gap={10}
             >
                 <TitleHeader title="News Reaction" />
-                <FormHome base="none" md="flex" />
+                {type === "header" && <FormHome base="none" md="flex" />}
             </Flex>
             <Flex
                 alignItems={"center"}
