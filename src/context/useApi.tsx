@@ -23,7 +23,7 @@ export const ApiProvider = ({ children }: React.PropsWithChildren) => {
         const dateNow = getDateNow();
         const {
             data: { data },
-        } = await API.get(`news?category=${searchValue}`);
+        } = await API.get(`news?category=${searchValue.toLowerCase()}`);
         if (!data.length) {
             // toast.success("Show. Manda Bala 🚀");
             toast.error("Nada Encontrado");
