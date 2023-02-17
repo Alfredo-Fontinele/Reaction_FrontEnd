@@ -5,10 +5,11 @@ import { ColorModeScript } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ApiProvider } from "./context/useApi";
+import { ApiProvider } from "./context/useApiNews";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import React from "react";
+import { MotionProvider } from "./context/motion";
 
 const theme = extendTheme({
     components: {
@@ -20,15 +21,17 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
         <BrowserRouter>
             <ChakraProvider theme={theme}>
-                <GlobalStyle>
-                    <ApiProvider>
-                        <ToastContainer />
-                        <ColorModeScript
-                            initialColorMode={theme.config.initialColorMode}
-                        />
-                        <App />
-                    </ApiProvider>
-                </GlobalStyle>
+                <MotionProvider>
+                    <GlobalStyle>
+                        <ApiProvider>
+                            <ToastContainer />
+                            <ColorModeScript
+                                initialColorMode={theme.config.initialColorMode}
+                            />
+                            <App />
+                        </ApiProvider>
+                    </GlobalStyle>
+                </MotionProvider>
             </ChakraProvider>
         </BrowserRouter>
     </React.StrictMode>

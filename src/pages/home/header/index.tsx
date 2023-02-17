@@ -26,7 +26,7 @@ import { IMobileOpenProps } from "../../../interfaces";
 import { MenuItems } from "./../../../components/menu-items/index";
 import { MenuMobileHome } from "../menu-mobile-home";
 import { FormHome } from "./../form-home/index";
-import { useAPI } from "../../../context/useApi";
+import { useAPINews } from "../../../context/useApiNews";
 import { Colors } from "./../../../styles/colors/index";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { ThemeIcon } from "./../../../components/theme-icon/index";
@@ -40,7 +40,7 @@ interface IHeader {
 
 export const Header = ({ type }: IHeader) => {
     const { onOpen } = useDisclosure();
-    const { searchNewsInApi, setNewsArticles } = useAPI();
+    const { searchNewsInApi, setNewsArticles } = useAPINews();
     const text = useRef<HTMLInputElement | null>(null);
 
     const handleSubmit = async () => {

@@ -18,11 +18,31 @@ import { OAuthButtonGroup } from "../components/q-auth-button-group";
 import { PasswordField } from "../components/password-field";
 import { Colors } from "../../styles/colors";
 import { Header } from "./../home/header/index";
-import { useAPI } from "../../context/useApi";
+import { useAPINews } from "../../context/useApiNews";
+import { RegisterSchema } from "../../schemas/registerSchema";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Error } from "../../components/error";
+import { toast } from "react-toastify";
 
 export const Register = () => {
-    const { navigate } = useAPI();
+    const { navigate } = useAPINews();
     document.title = "Register";
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(RegisterSchema),
+    });
+
+    const onSubmitFormRegister = (data: any) => {
+        toast.success(`Usuário registrado com sucesso`);
+        navigate("/login");
+        return;
+    };
+
     return (
         <>
             <Header />
@@ -56,17 +76,41 @@ export const Register = () => {
                         boxShadow={{ base: "none", sm: "md" }}
                         borderRadius={{ base: "none", sm: "xl" }}
                     >
-                        <Stack spacing="6">
+                        <form
+                            onSubmit={handleSubmit(onSubmitFormRegister)}
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: 15,
+                            }}
+                        >
                             <Stack spacing="5">
                                 <FormControl>
                                     <FormLabel htmlFor="email">Name</FormLabel>
-                                    <Input id="name" type="text" />
+                                    <Input
+                                        id="name"
+                                        type="text"
+                                        {...register("name")}
+                                    />
                                 </FormControl>
+                                {errors.name && (
+                                    <Error text={errors.name.message} />
+                                )}
                                 <FormControl>
                                     <FormLabel htmlFor="email">Email</FormLabel>
-                                    <Input id="email" type="email" />
+                                    <Input
+                                        id="email"
+                                        type="email"
+                                        {...register("email")}
+                                    />
                                 </FormControl>
-                                <PasswordField />
+                                {errors.email && (
+                                    <Error text={errors.email.message} />
+                                )}
+                                <PasswordField {...register("password")} />
+                                {errors.password && (
+                                    <Error text={errors.password.message} />
+                                )}
                             </Stack>
                             <HStack justify="space-between">
                                 <Checkbox defaultChecked>Remember me</Checkbox>
@@ -79,9 +123,7 @@ export const Register = () => {
                                 </Button>
                             </HStack>
                             <Stack spacing="6">
-                                <Button onClick={() => navigate("/login")}>
-                                    Sign Up
-                                </Button>
+                                <button type="submit">Sign Up</button>
                                 <HStack>
                                     <Divider />
                                     <Text
@@ -95,7 +137,7 @@ export const Register = () => {
                                 </HStack>
                                 <OAuthButtonGroup />
                             </Stack>
-                        </Stack>
+                        </form>
                     </Box>
                 </Stack>
             </Container>

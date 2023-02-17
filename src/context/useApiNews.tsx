@@ -1,4 +1,4 @@
-import { INewArticle } from "./../pages/home/list-news/index";
+import { INewArticle } from "../pages/home/list-news/index";
 import { createContext, useContext, useState } from "react";
 import { getDateNow } from "../utils/getDateNow";
 import { API } from "../services";
@@ -51,4 +51,4 @@ export const ApiProvider = ({ children }: React.PropsWithChildren) => {
     );
 };
 
-export const useAPI = () => useContext(ContextUseAPI);
+export const useAPINews = () => useContext(ContextUseAPI);

@@ -1,5 +1,5 @@
 import { Button, FormControl, Input } from "@chakra-ui/react";
-import { useAPI } from "../../../context/useApi";
+import { useAPINews } from "../../../context/useApiNews";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useEffect, useRef } from "react";
 import { Colors } from "./../../../styles/colors/index";
@@ -11,7 +11,7 @@ interface IFormHomeProps {
 }
 
 export const FormHome = ({ base, md }: IFormHomeProps) => {
-    const { searchNewsInApi, setNewsArticles, setIsLoading } = useAPI();
+    const { searchNewsInApi, setNewsArticles, setIsLoading } = useAPINews();
     const text = useRef<HTMLInputElement | null>(null);
 
     const handleSubmit = async () => {

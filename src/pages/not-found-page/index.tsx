@@ -1,9 +1,9 @@
 import { Flex, Button, Text } from "@chakra-ui/react";
-import { useAPI } from "../../context/useApi";
+import { useAPINews } from "../../context/useApiNews";
 import { Colors } from "../../styles/colors";
 
 export const NotFound = () => {
-    const { navigate } = useAPI();
+    const { navigate } = useAPINews();
     document.title = "Not Found";
     return (
         <Flex

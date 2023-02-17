@@ -1,6 +1,6 @@
 import { NotFoundSearch } from "./../../../components/not-found-search/index";
 import { Flex, Image, Link, Text } from "@chakra-ui/react";
-import { useAPI } from "../../../context/useApi";
+import { useAPINews } from "../../../context/useApiNews";
 import { CardNews } from "./../card-news/index";
 import { useState } from "react";
 
@@ -33,7 +33,7 @@ export interface INewArticle {
 }
 
 export const ListNews = () => {
-    const { newsArticles, isLoading } = useAPI();
+    const { newsArticles, isLoading } = useAPINews();
     return (
         <Flex
             key={crypto.randomUUID()}

@@ -18,11 +18,43 @@ import { OAuthButtonGroup } from "../components/q-auth-button-group";
 import { PasswordField } from "../components/password-field";
 import { Colors } from "../../styles/colors";
 import { Header } from "./../home/header/index";
-import { useAPI } from "../../context/useApi";
+import { useAPINews } from "../../context/useApiNews";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { LoginSchema } from "../../schemas/loginSchema";
+import { Error } from "../../components/error";
+import { toast } from "react-toastify";
+
+const DB = [
+    {
+        email: "neto@gmail.com",
+        password: 1234,
+        name: "Alfredo",
+    },
+];
 
 export const Login = () => {
-    const { navigate } = useAPI();
+    const { navigate } = useAPINews();
     document.title = "Login";
+
+    const onSubmitFormLogin = (data: any) => {
+        const existUser = DB.find((user) => user.email === data.email);
+        if (existUser) {
+            toast.success(`Show. Manda Bala ${existUser.name}`);
+            navigate("/dashboard");
+            return;
+        }
+        toast.error("Ops. Usuário não encontrado");
+    };
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(LoginSchema),
+    });
+
     return (
         <>
             <Header />
@@ -56,13 +88,26 @@ export const Login = () => {
                         boxShadow={{ base: "none", sm: "md" }}
                         borderRadius={{ base: "none", sm: "xl" }}
                     >
-                        <Stack spacing="6">
+                        <form
+                            onSubmit={handleSubmit(onSubmitFormLogin)}
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: 15,
+                            }}
+                        >
                             <Stack spacing="5">
                                 <FormControl>
                                     <FormLabel htmlFor="email">Email</FormLabel>
-                                    <Input id="email" type="email" />
+                                    <Input id="email" {...register("email")} />
                                 </FormControl>
-                                <PasswordField />
+                                {errors.email && (
+                                    <Error text={errors.email.message} />
+                                )}
+                                <PasswordField {...register("password")} />
+                                {errors.password && (
+                                    <Error text={errors.password.message} />
+                                )}
                             </Stack>
                             <HStack justify="space-between">
                                 <Checkbox defaultChecked>Remember me</Checkbox>
@@ -75,9 +120,7 @@ export const Login = () => {
                                 </Button>
                             </HStack>
                             <Stack spacing="6">
-                                <Button onClick={() => navigate("/dashboard")}>
-                                    Sign in
-                                </Button>
+                                <button type="submit">Sign in</button>
                                 <HStack>
                                     <Divider />
                                     <Text
@@ -91,7 +134,7 @@ export const Login = () => {
                                 </HStack>
                                 <OAuthButtonGroup />
                             </Stack>
-                        </Stack>
+                        </form>
                     </Box>
                 </Stack>
             </Container>

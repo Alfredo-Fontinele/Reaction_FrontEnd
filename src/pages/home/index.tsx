@@ -1,12 +1,12 @@
 import { Container, Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { Loading } from "../../components/loading";
-import { useAPI } from "../../context/useApi";
+import { useAPINews } from "../../context/useApiNews";
 import { ListNews } from "./list-news";
 import { FormHome } from "./form-home";
 import { Header } from "./header";
 
 export const Home = () => {
-    const { isLoading } = useAPI();
+    const { isLoading } = useAPINews();
     document.title = "Home";
     return (
         <Flex flexDir={"column"}>
