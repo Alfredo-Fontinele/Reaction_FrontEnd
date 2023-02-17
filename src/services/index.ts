@@ -11,5 +11,5 @@ import axios from "axios";
 
 export const API = axios.create({
     baseURL: `https://inshorts.deta.dev`,
-    timeout: 8000,
+    timeout: 5000,
 });
