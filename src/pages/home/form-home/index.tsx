@@ -1,4 +1,4 @@
-import { Button, FormControl, Input } from "@chakra-ui/react";
+import { Button, FormControl, Input, useMediaQuery } from "@chakra-ui/react";
 import { useAPINews } from "../../../context/useApiNews";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useEffect, useRef } from "react";
@@ -12,6 +12,7 @@ interface IFormHomeProps {
 
 export const FormHome = ({ base, md }: IFormHomeProps) => {
     const { searchNewsInApi, setNewsArticles, setIsLoading } = useAPINews();
+    const [isBiggerThan768px] = useMediaQuery("(min-width: 768px)");
     const text = useRef<HTMLInputElement | null>(null);
 
     const handleSubmit = async () => {
@@ -34,7 +35,7 @@ export const FormHome = ({ base, md }: IFormHomeProps) => {
         <FormControl
             display={{ base: base, md: md }}
             gap={2}
-            justifyContent="flex-start"
+            justifyContent={isBiggerThan768px ? "flex-start" : "center"}
             w={"full"}
         >
             <Input
@@ -45,7 +46,7 @@ export const FormHome = ({ base, md }: IFormHomeProps) => {
                 color={Colors.default}
                 bg={Colors.menuItem}
                 minW={270}
-                maxW={400}
+                maxW={isBiggerThan768px ? 400 : 500}
             />
             <Button
                 p={"1rem"}

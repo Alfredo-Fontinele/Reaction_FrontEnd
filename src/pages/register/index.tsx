@@ -16,7 +16,6 @@ import { Logo } from "../components/logo";
 import { Link } from "react-router-dom";
 import { OAuthButtonGroup } from "../components/q-auth-button-group";
 import { PasswordField } from "../components/password-field";
-import { Colors } from "../../styles/colors";
 import { Header } from "./../home/header/index";
 import { useAPINews } from "../../context/useApiNews";
 import { RegisterSchema } from "../../schemas/registerSchema";
@@ -40,7 +39,6 @@ export const Register = () => {
     const onSubmitFormRegister = (data: any) => {
         toast.success(`Usuário registrado com sucesso`);
         navigate("/login");
-        return;
     };
 
     return (
