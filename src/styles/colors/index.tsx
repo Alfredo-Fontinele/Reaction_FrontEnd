@@ -1,6 +1,6 @@
 export const Colors = {
     black: "#000",
-    default: "#eaeaea",
+    default: "#f2eded",
     dark: "rgb(10, 20, 30)",
     darkBlue: "rgb(20, 40, 70)",
     main: "#d6873c",
