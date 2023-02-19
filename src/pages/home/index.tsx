@@ -23,7 +23,13 @@ export const Home = () => {
                 <FormHome base="flex" md="none" />
             </Flex>
             {!!isLoading && <Loading />}
-            <Container maxW="8xl">
+            <Container
+                maxW="8xl"
+                minH={"80vh"}
+                display="flex"
+                justifyContent="center"
+                alignItems={"center"}
+            >
                 <ListNews />
             </Container>
         </Flex>

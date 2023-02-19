@@ -1,7 +1,14 @@
-import { HStack, IconButton, Menu, MenuButton } from "@chakra-ui/react";
+import {
+    HStack,
+    IconButton,
+    Menu,
+    MenuButton,
+    useColorMode,
+} from "@chakra-ui/react";
 import { MenuItems } from "../../../components/menu-items";
 import { IItemMenuOptions } from "../../../interfaces";
 import { FiMenu } from "react-icons/fi";
+import { Colors } from "../../../styles/colors";
 
 const ListMenuOptions: IItemMenuOptions[] = [
     { name: "Login", href: "/login" },
@@ -10,6 +17,10 @@ const ListMenuOptions: IItemMenuOptions[] = [
 ];
 
 export const MenuMobileHome = () => {
+    const { colorMode } = useColorMode();
+    const currentColorMenu = () => {
+        return colorMode === "light" ? Colors.main : Colors.slate;
+    };
     return (
         <Menu>
             <MenuButton
@@ -19,14 +30,10 @@ export const MenuMobileHome = () => {
             >
                 <HStack>
                     <IconButton
-                        border="2px solid #fff"
+                        border={`2px solid ${currentColorMenu()}`}
                         backgroundColor="transparent"
                         aria-label="open menu"
-                        _hover={{
-                            border: "2px solid slateblue",
-                            backgroundColor: "slateblue",
-                        }}
-                        icon={<FiMenu color="#eaeaea" />}
+                        icon={<FiMenu color={currentColorMenu()} />}
                     />
                 </HStack>
             </MenuButton>

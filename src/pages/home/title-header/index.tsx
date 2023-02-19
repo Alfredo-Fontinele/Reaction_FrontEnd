@@ -1,6 +1,6 @@
-import { Flex, Text } from "@chakra-ui/react";
 import { RiNewspaperFill } from "react-icons/ri";
 import { Colors } from "../../../styles/colors";
+import { Flex, Text } from "@chakra-ui/react";
 
 interface ITitleHeaderProps {
     title: string;
@@ -8,19 +8,21 @@ interface ITitleHeaderProps {
 
 export const TitleHeader = ({ title }: ITitleHeaderProps) => {
     return (
-        <Flex gap={3}>
+        <Flex gap={3} justifyContent={"center"} alignItems={"center"}>
             <RiNewspaperFill
                 style={{
                     fontSize: 35,
-                    color: Colors.default,
+                    color: Colors.slate,
                 }}
             />
             <Text
-                display={{ base: "flex" }}
-                fontSize="2xl"
+                display={{ base: "1rem", md: "flex" }}
+                fontSize={{ base: "1xl", md: "2xl" }}
                 fontWeight={"500"}
-                whiteSpace="nowrap"
                 color={Colors.default}
+                whiteSpace={"nowrap"}
+                overflow={"hidden"}
+                textOverflow={"ellipsis"}
             >
                 {title}
             </Text>

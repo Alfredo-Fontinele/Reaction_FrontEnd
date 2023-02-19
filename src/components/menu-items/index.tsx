@@ -1,7 +1,7 @@
 import { Menu, MenuItem, MenuList } from "@chakra-ui/react";
 import { IItemMenuOptions } from "../../interfaces";
-import { Link } from "react-router-dom";
 import { Colors } from "../../styles/colors";
+import { Link } from "react-router-dom";
 
 interface IListMenuOptions {
     menuOptions: IItemMenuOptions[];
@@ -9,7 +9,7 @@ interface IListMenuOptions {
 
 export const MenuItems = ({ menuOptions }: IListMenuOptions) => {
     return (
-        <MenuList bg={Colors.menuItem} border="none" p={2}>
+        <MenuList bg={Colors.menuItem} border="none" p={2} zIndex={999}>
             {menuOptions.map((option) => (
                 <Link to={option.href} key={crypto.randomUUID()}>
                     <MenuItem

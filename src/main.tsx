@@ -6,10 +6,10 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ApiProvider } from "./context/useApiNews";
+import { MotionProvider } from "./context/motion";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import React from "react";
-import { MotionProvider } from "./context/motion";
 
 const theme = extendTheme({
     components: {

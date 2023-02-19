@@ -1,8 +1,9 @@
-import { NotFoundSearch } from "./../../../components/not-found-search/index";
+import { IconSvg } from "../../../components/icon-svg/index";
 import { Flex, Image, Link, Text } from "@chakra-ui/react";
 import { useAPINews } from "../../../context/useApiNews";
 import { CardNews } from "./../card-news/index";
 import { useState } from "react";
+import svg from "../../../../src/assets/man-searching-at.svg";
 
 interface ISource {
     id: null | boolean;
@@ -50,7 +51,7 @@ export const ListNews = () => {
                     />
                 ))
             ) : (
-                <NotFoundSearch />
+                <IconSvg icon={svg} />
             )}
         </Flex>
     );

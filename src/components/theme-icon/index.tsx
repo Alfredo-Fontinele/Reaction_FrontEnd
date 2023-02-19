@@ -9,14 +9,14 @@ export const ThemeIcon = () => {
             {colorMode === "light" ? (
                 <MoonIcon
                     fontSize={20}
-                    color={Colors.default}
+                    color={Colors.slate}
                     onClick={toggleColorMode}
                     cursor="pointer"
                 />
             ) : (
                 <SunIcon
                     fontSize={20}
-                    color={Colors.default}
+                    color={Colors.main}
                     onClick={toggleColorMode}
                     cursor="pointer"
                 />

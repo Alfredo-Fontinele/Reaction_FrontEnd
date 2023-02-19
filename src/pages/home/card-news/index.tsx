@@ -33,6 +33,7 @@ export const CardNews = ({ newsArticle }: ICardNewsProps) => {
                 {newsArticle.title ? newsArticle.title : "Sem Título"}
             </Text>
             <Image
+                maxH={400}
                 src={newsArticle.imageUrl ? newsArticle.imageUrl : otherImage}
                 alt={newsArticle.url ? newsArticle.url : newsArticle.title}
             />

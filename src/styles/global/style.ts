@@ -1,4 +1,4 @@
-import { defineStyleConfig } from "@chakra-ui/react";
+import { defineStyleConfig, useColorMode } from "@chakra-ui/react";
 import { Colors } from "../colors/index";
 
 export const BodyConfigStyle = defineStyleConfig({
@@ -9,16 +9,5 @@ export const BodyConfigStyle = defineStyleConfig({
         w: "full",
         minH: "100vh",
         fontFamily: "poppins",
-    },
-    variants: {
-        default: {
-            bgColor: Colors.default,
-        },
-        primary: {
-            bgColor: Colors.menuItem,
-        },
-        secondary: {
-            bgColor: Colors.gray1,
-        },
     },
 });

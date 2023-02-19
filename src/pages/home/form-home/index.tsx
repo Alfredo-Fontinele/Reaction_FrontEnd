@@ -37,6 +37,7 @@ export const FormHome = ({ base, md }: IFormHomeProps) => {
             gap={2}
             justifyContent={isBiggerThan768px ? "flex-start" : "center"}
             w={"full"}
+            zIndex={99}
         >
             <Input
                 ref={text}

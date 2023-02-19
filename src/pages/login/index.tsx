@@ -4,6 +4,7 @@ import {
     Checkbox,
     Container,
     Divider,
+    Flex,
     FormControl,
     FormLabel,
     Heading,
@@ -24,6 +25,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "../../schemas/loginSchema";
 import { Error } from "../../components/error";
 import { toast } from "react-toastify";
+import { IconSvg } from "../../components/icon-svg";
+import svg from "../../../src/assets/man-make-login.svg";
 
 const DB = [
     {
@@ -59,84 +62,118 @@ export const Login = () => {
         <>
             <Header />
             <Container
-                maxW="lg"
-                py={{ base: "12", md: "24" }}
-                px={{ base: "0", sm: "8" }}
+                w={"full"}
+                maxW="8xl"
+                py={{ base: 12 }}
+                minH={"90vh"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
             >
-                <Stack spacing="8">
-                    <Stack spacing="6">
-                        <Logo />
-                        <Stack
-                            spacing={{ base: "2", md: "3" }}
-                            textAlign="center"
-                        >
-                            <Heading size={{ base: "xs", md: "sm" }}>
-                                Log in to your account
-                            </Heading>
-                            <HStack spacing="1" justify="center">
-                                <Text color="muted">
-                                    Don't have an account?
-                                </Text>
-                                <Link to="/register">Sign Up</Link>
-                            </HStack>
-                        </Stack>
-                    </Stack>
-                    <Box
-                        py={{ base: "0", sm: "8" }}
-                        px={{ base: "4", sm: "10" }}
-                        bg={{ base: "transparent", sm: "bg-surface" }}
-                        boxShadow={{ base: "none", sm: "md" }}
-                        borderRadius={{ base: "none", sm: "xl" }}
-                    >
-                        <form
-                            onSubmit={handleSubmit(onSubmitFormLogin)}
-                            style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: 15,
-                            }}
-                        >
-                            <Stack spacing="5">
-                                <FormControl>
-                                    <FormLabel htmlFor="email">Email</FormLabel>
-                                    <Input id="email" {...register("email")} />
-                                </FormControl>
-                                {errors.email && (
-                                    <Error text={errors.email.message} />
-                                )}
-                                <PasswordField {...register("password")} />
-                                {errors.password && (
-                                    <Error text={errors.password.message} />
-                                )}
-                            </Stack>
-                            <HStack justify="space-between">
-                                <Checkbox defaultChecked>Remember me</Checkbox>
-                                <Button
-                                    variant="link"
-                                    colorScheme="blue"
-                                    size="sm"
-                                >
-                                    Forgot password?
-                                </Button>
-                            </HStack>
-                            <Stack spacing="6">
-                                <button type="submit">Sign in</button>
-                                <HStack>
-                                    <Divider />
-                                    <Text
-                                        fontSize="sm"
-                                        whiteSpace="nowrap"
-                                        color="muted"
+                <Flex
+                    gap={50}
+                    w="full"
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                >
+                    <IconSvg
+                        icon={svg}
+                        display={{ base: "none", xl: "flex" }}
+                    />
+                    <Flex flexDir={"column"}>
+                        <Stack spacing="6">
+                            <Stack spacing="6" textAlign="center" p={6}>
+                                <Heading size={"2xl"} color={Colors.slate}>
+                                    Log in to your account
+                                </Heading>
+                                <HStack spacing="2" justify="center">
+                                    <Text>Don't have an account?</Text>
+                                    <Link
+                                        style={{
+                                            borderBottom: `1px solid ${Colors.slate}`,
+                                            color: Colors.slate,
+                                        }}
+                                        to="/register"
                                     >
-                                        or continue with
-                                    </Text>
-                                    <Divider />
+                                        Sign Up
+                                    </Link>
                                 </HStack>
-                                <OAuthButtonGroup />
                             </Stack>
-                        </form>
-                    </Box>
-                </Stack>
+                        </Stack>
+                        <Box
+                            py={{ base: "0", sm: "8" }}
+                            px={{ base: "4", sm: "10" }}
+                            bg={{ base: "transparent", sm: "bg-surface" }}
+                            boxShadow={{ base: "none", sm: "md" }}
+                            borderRadius={{ base: "none", sm: "xl" }}
+                        >
+                            <form
+                                onSubmit={handleSubmit(onSubmitFormLogin)}
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: 15,
+                                }}
+                            >
+                                <Stack spacing="5">
+                                    <FormControl>
+                                        <FormLabel htmlFor="email">
+                                            Email
+                                        </FormLabel>
+                                        <Input
+                                            id="email"
+                                            {...register("email")}
+                                        />
+                                    </FormControl>
+                                    {errors.email && (
+                                        <Error text={errors.email.message} />
+                                    )}
+                                    <PasswordField {...register("password")} />
+                                    {errors.password && (
+                                        <Error text={errors.password.message} />
+                                    )}
+                                </Stack>
+                                <HStack justify="space-between">
+                                    <Checkbox defaultChecked>
+                                        Remember me
+                                    </Checkbox>
+                                    <Button
+                                        variant="link"
+                                        colorScheme="blue"
+                                        size="sm"
+                                    >
+                                        Forgot password?
+                                    </Button>
+                                </HStack>
+                                <Stack spacing="6">
+                                    <button
+                                        type="submit"
+                                        style={{
+                                            padding: 10,
+                                            borderRadius: 8,
+                                            color: Colors.default,
+                                            backgroundColor: Colors.slate,
+                                        }}
+                                    >
+                                        Sign In
+                                    </button>
+                                    <HStack>
+                                        <Divider />
+                                        <Text
+                                            fontSize="sm"
+                                            whiteSpace="nowrap"
+                                            color="muted"
+                                        >
+                                            or continue with
+                                        </Text>
+                                        <Divider />
+                                    </HStack>
+                                    <OAuthButtonGroup />
+                                </Stack>
+                            </form>
+                        </Box>
+                    </Flex>
+                </Flex>
             </Container>
         </>
     );
