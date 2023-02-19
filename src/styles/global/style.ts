@@ -1,5 +1,4 @@
 import { defineStyleConfig, useColorMode } from "@chakra-ui/react";
-import { Colors } from "../colors/index";
 
 export const BodyConfigStyle = defineStyleConfig({
     baseStyle: {

@@ -1,7 +1,4 @@
-import { LeftToRightAnime } from "../../animations/styled-components/leftToRight";
 import { Flex, Text } from "@chakra-ui/react";
-import { Colors } from "../../styles/colors";
-import React from "react";
 
 interface IError {
     text: any;
@@ -9,12 +6,7 @@ interface IError {
 
 export const Error = ({ text }: IError) => {
     return (
-        <Flex
-            justifyContent={"flex-start"}
-            alignItems={"center"}
-            fontWeight={"bold"}
-            color={Colors.default}
-        >
+        <Flex justifyContent={"flex-start"} alignItems={"center"}>
             <Text textAlign={"center"}>{text}</Text>
         </Flex>
     );

@@ -1,6 +1,6 @@
 import { Container, Flex, Text, useDisclosure } from "@chakra-ui/react";
-import { Loading } from "../../components/loading";
 import { useAPINews } from "../../context/useApiNews";
+import { Loading } from "../../components/loading";
 import { ListNews } from "./list-news";
 import { FormHome } from "./form-home";
 import { Header } from "./header";
@@ -29,7 +29,9 @@ export const Home = () => {
                 display="flex"
                 justifyContent="center"
                 alignItems={"center"}
+                gap={70}
             >
+                <Text fontSize={"8xl"}>News Reaction</Text>
                 <ListNews />
             </Container>
         </Flex>
