@@ -81,28 +81,30 @@ export const Login = () => {
                         display={{ base: "none", xl: "flex" }}
                     />
                     <Flex flexDir={"column"}>
-                        <Stack spacing="6">
-                            <Stack spacing="6" textAlign="center" p={6}>
-                                <Heading size={"2xl"} color={Colors.slate}>
-                                    Log in to your account
-                                </Heading>
-                                <HStack spacing="2" justify="center">
-                                    <Text>Don't have an account?</Text>
-                                    <Link
-                                        style={{
-                                            borderBottom: `1px solid ${Colors.slate}`,
-                                            color: Colors.slate,
-                                        }}
-                                        to="/register"
-                                    >
-                                        Sign Up
-                                    </Link>
-                                </HStack>
-                            </Stack>
+                        <Stack spacing="6" textAlign="center" p={6}>
+                            <Heading size={"2xl"} color={Colors.slate}>
+                                Log in to your account
+                            </Heading>
+                            <HStack
+                                spacing="2"
+                                justify="center"
+                                flexWrap={"wrap"}
+                            >
+                                <Text>Don't have an account?</Text>
+                                <Link
+                                    style={{
+                                        borderBottom: `1px solid ${Colors.slate}`,
+                                        color: Colors.slate,
+                                    }}
+                                    to="/register"
+                                >
+                                    Sign Up
+                                </Link>
+                            </HStack>
                         </Stack>
                         <Box
                             py={{ base: "0", sm: "8" }}
-                            px={{ base: "4", sm: "10" }}
+                            px={{ base: "0", sm: "10" }}
                             bg={{ base: "transparent", sm: "bg-surface" }}
                             boxShadow={{ base: "none", sm: "md" }}
                             borderRadius={{ base: "none", sm: "xl" }}

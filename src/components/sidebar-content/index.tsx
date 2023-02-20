@@ -28,7 +28,7 @@ export const SidebarContent = ({ onClose, ...rest }: IMobileCloseProps) => {
             w={{ base: "full", md: 60 }}
             pos="fixed"
             h="full"
-            bg={Colors.menuItem}
+            bg={Colors.darkBlue}
             {...rest}
         >
             <Flex

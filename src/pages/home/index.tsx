@@ -31,7 +31,6 @@ export const Home = () => {
                 alignItems={"center"}
                 gap={70}
             >
-                <Text fontSize={"8xl"}>News Reaction</Text>
                 <ListNews />
             </Container>
         </Flex>

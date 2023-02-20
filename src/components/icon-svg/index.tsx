@@ -5,5 +5,5 @@ interface IIconSvg extends ImageProps {
 }
 
 export const IconSvg = ({ icon, ...rest }: IIconSvg) => {
-    return <Image w={600} h={600} src={icon} {...rest} />;
+    return <Image src={icon} {...rest} />;
 };

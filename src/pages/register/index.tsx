@@ -59,37 +59,34 @@ export const Register = () => {
                 justifyContent={"center"}
                 alignItems={"center"}
             >
-                <Flex
-                    gap={50}
-                    w="full"
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                >
+                <Flex w="full" justifyContent={"center"} alignItems={"center"}>
                     <Flex flexDir={"column"}>
-                        <Stack spacing="6">
-                            <Stack spacing="6" textAlign="center" p={6}>
-                                <Heading size={"2xl"} color={Colors.main}>
-                                    Register your account
-                                </Heading>
-                                <HStack spacing="1" justify="center">
-                                    <Text color="muted">
-                                        Don't have an account?
-                                    </Text>
-                                    <Link
-                                        style={{
-                                            borderBottom: `1px solid ${Colors.main}`,
-                                            color: Colors.main,
-                                        }}
-                                        to="/login"
-                                    >
-                                        Sign In
-                                    </Link>
-                                </HStack>
-                            </Stack>
+                        <Stack spacing="6" textAlign="center" p={6}>
+                            <Heading size={"2xl"} color={Colors.main}>
+                                Register your account
+                            </Heading>
+                            <HStack
+                                spacing="1"
+                                justify="center"
+                                flexWrap={"wrap"}
+                            >
+                                <Text color="muted">
+                                    Don't have an account?
+                                </Text>
+                                <Link
+                                    style={{
+                                        borderBottom: `1px solid ${Colors.main}`,
+                                        color: Colors.main,
+                                    }}
+                                    to="/login"
+                                >
+                                    Sign In
+                                </Link>
+                            </HStack>
                         </Stack>
                         <Box
                             py={{ base: "0", sm: "8" }}
-                            px={{ base: "4", sm: "10" }}
+                            px={{ base: "0", sm: "10" }}
                             bg={{ base: "transparent", sm: "bg-surface" }}
                             boxShadow={{ base: "none", sm: "md" }}
                             borderRadius={{ base: "none", sm: "xl" }}

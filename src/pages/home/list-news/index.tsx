@@ -39,8 +39,8 @@ export const ListNews = () => {
         <Flex
             key={crypto.randomUUID()}
             gap={10}
-            p={"3rem 1rem"}
             justifyContent="center"
+            alignItems={"flex-start"}
             flexWrap={"wrap"}
         >
             {!!newsArticles.length ? (
@@ -51,7 +51,7 @@ export const ListNews = () => {
                     />
                 ))
             ) : (
-                <IconSvg icon={svg} />
+                <IconSvg w={600} h={400} icon={svg} />
             )}
         </Flex>
     );
