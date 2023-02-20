@@ -13,8 +13,6 @@ export const Home = () => {
             <Header type="header" />
             <Flex
                 p={"1rem"}
-                justifyContent={"center"}
-                alignItems="center"
                 flexDir={"column"}
                 w="full"
                 gap={5}

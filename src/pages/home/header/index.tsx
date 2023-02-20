@@ -62,12 +62,7 @@ export const Header = ({ type }: IHeader) => {
             gap={10}
             p={"0 1rem"}
         >
-            <Flex
-                alignItems={"center"}
-                justifyContent="flex-start"
-                w={"full"}
-                gap={10}
-            >
+            <Flex alignItems={"center"} w={"full"} gap={10}>
                 <TitleHeader title="News Reaction" />
                 {type === "header" && <FormHome base="none" md="flex" />}
             </Flex>

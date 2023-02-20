@@ -1,21 +1,37 @@
-import { Button, FormControl, Input, useMediaQuery } from "@chakra-ui/react";
+import {
+    Button,
+    FormControl,
+    Input,
+    InputGroup,
+    InputLeftAddon,
+    InputLeftElement,
+    InputProps,
+    InputRightAddon,
+    useMediaQuery,
+} from "@chakra-ui/react";
 import { useAPINews } from "../../../context/useApiNews";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useEffect, useRef } from "react";
+import { KeyboardEventHandler, useEffect, useRef } from "react";
 import { Colors } from "./../../../styles/colors/index";
 import { toast } from "react-toastify";
+import { PhoneIcon, Search2Icon, SearchIcon } from "@chakra-ui/icons";
 
-interface IFormHomeProps {
+interface IFormHomeProps extends InputProps {
     base: string;
     md: string;
 }
 
-export const FormHome = ({ base, md }: IFormHomeProps) => {
+interface IEventKeyboard {
+    e: KeyboardEventHandler<HTMLInputElement>;
+}
+
+export const FormHome = ({ base, md, ...rest }: IFormHomeProps) => {
     const { searchNewsInApi, setNewsArticles, setIsLoading } = useAPINews();
     const [isBiggerThan768px] = useMediaQuery("(min-width: 768px)");
     const text = useRef<HTMLInputElement | null>(null);
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e: any) => {
+        if (e.keyCode !== 13) return;
         if (!text.current?.value) {
             toast.error("Insira sua pesquisa");
             return;
@@ -35,33 +51,26 @@ export const FormHome = ({ base, md }: IFormHomeProps) => {
         <FormControl
             display={{ base: base, md: md }}
             gap={2}
-            justifyContent={isBiggerThan768px ? "flex-start" : "center"}
-            w={"full"}
             zIndex={99}
+            {...rest}
         >
-            <Input
-                ref={text}
-                type="search"
-                placeholder="Pesquise por politics, world, all ..."
-                required
-                color={Colors.default}
-                bg={Colors.menuItem}
-                minW={270}
-                maxW={isBiggerThan768px ? 400 : 500}
-            />
-            <Button
-                p={"1rem"}
-                fontSize={25}
-                color={Colors.default}
-                backgroundColor={Colors.blueLight}
-                onClick={handleSubmit}
-                _hover={{
-                    color: Colors.black,
-                    backgroundColor: Colors.default,
-                }}
-            >
-                <AiOutlineSearch />
-            </Button>
+            <InputGroup>
+                <InputLeftElement
+                    children={
+                        <Search2Icon id={"search-button"} color="gray.300" />
+                    }
+                />
+                <Input
+                    ref={text}
+                    type="search"
+                    onKeyUp={handleSubmit}
+                    placeholder="Pesquise por politics, world, all ..."
+                    required
+                    color={Colors.default}
+                    bg={Colors.menuItem}
+                    minW={270}
+                />
+            </InputGroup>
         </FormControl>
     );
 };

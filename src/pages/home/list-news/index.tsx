@@ -39,8 +39,8 @@ export const ListNews = () => {
         <Flex
             key={crypto.randomUUID()}
             gap={10}
+            py={{ base: 10 }}
             justifyContent="center"
-            alignItems={"flex-start"}
             flexWrap={"wrap"}
         >
             {!!newsArticles.length ? (
