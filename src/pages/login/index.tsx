@@ -122,10 +122,7 @@ export const Login = () => {
                                         <FormLabel htmlFor="email">
                                             Email
                                         </FormLabel>
-                                        <Input
-                                            id="email"
-                                            {...register("email")}
-                                        />
+                                        <Input {...register("email")} />
                                     </FormControl>
                                     {errors.email && (
                                         <Error text={errors.email.message} />

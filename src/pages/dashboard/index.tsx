@@ -1,30 +1,15 @@
 import React, { ReactNode } from "react";
 import {
-    IconButton,
-    Avatar,
     Box,
     CloseButton,
-    Flex,
-    HStack,
-    VStack,
-    Icon,
     useColorModeValue,
-    Link,
     Drawer,
     DrawerContent,
-    Text,
     useDisclosure,
-    BoxProps,
-    FlexProps,
-    Menu,
-    MenuButton,
-    MenuDivider,
-    MenuItem,
-    MenuList,
 } from "@chakra-ui/react";
-import { IconType } from "react-icons";
 import { SidebarContent } from "../../components/sidebar-content";
 import { MobileNav } from "../../components/mobile-nav";
+import { Outlet } from "react-router-dom";
 
 export const Dashboard = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -48,6 +33,7 @@ export const Dashboard = () => {
                 </DrawerContent>
             </Drawer>
             <MobileNav onOpen={onOpen} />
+            <Outlet />
         </Box>
     );
 };

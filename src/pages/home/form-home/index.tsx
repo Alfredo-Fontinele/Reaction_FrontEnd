@@ -69,6 +69,7 @@ export const FormHome = ({ base, md, ...rest }: IFormHomeProps) => {
                     color={Colors.default}
                     bg={Colors.menuItem}
                     minW={270}
+                    maxW={700}
                 />
             </InputGroup>
         </FormControl>

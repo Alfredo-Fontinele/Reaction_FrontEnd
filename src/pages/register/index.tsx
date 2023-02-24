@@ -105,7 +105,6 @@ export const Register = () => {
                                             Name
                                         </FormLabel>
                                         <Input
-                                            id="name"
                                             type="text"
                                             {...register("name")}
                                         />

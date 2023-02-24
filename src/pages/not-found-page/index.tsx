@@ -1,9 +1,8 @@
-import { Flex, Button, Text } from "@chakra-ui/react";
-import { useAPINews } from "../../context/useApiNews";
+import { Flex, Text } from "@chakra-ui/react";
 import { Colors } from "../../styles/colors";
+import { Link } from "react-router-dom";
 
 export const NotFound = () => {
-    const { navigate } = useAPINews();
     document.title = "Not Found";
     return (
         <Flex
@@ -17,7 +16,7 @@ export const NotFound = () => {
             <Text fontSize={"4xl"} color={Colors.default}>
                 Page Not Found
             </Text>
-            <Button onClick={() => navigate("/")}>Voltar à Home</Button>
+            <Link to={"/"}>Voltar à Home</Link>
         </Flex>
     );
 };

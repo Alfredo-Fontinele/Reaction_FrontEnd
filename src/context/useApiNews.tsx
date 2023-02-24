@@ -7,6 +7,8 @@ import React from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface IContextUseAPI {
+    userAdmin: string;
+    setUserAdmin: React.Dispatch<React.SetStateAction<string>>;
     navigate: (to: string) => void;
     searchNewsInApi: (searchValue: string) => Promise<any>;
     newsArticles: INewArticle[];
@@ -20,6 +22,7 @@ const ContextUseAPI = createContext<IContextUseAPI>({} as IContextUseAPI);
 export const ApiProvider = ({ children }: React.PropsWithChildren) => {
     const [newsArticles, setNewsArticles] = useState<INewArticle[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [userAdmin, setUserAdmin] = useState("Alfredo Neto");
 
     const navigate = useNavigate();
 
@@ -38,6 +41,8 @@ export const ApiProvider = ({ children }: React.PropsWithChildren) => {
     return (
         <ContextUseAPI.Provider
             value={{
+                userAdmin,
+                setUserAdmin,
                 navigate,
                 searchNewsInApi,
                 isLoading,

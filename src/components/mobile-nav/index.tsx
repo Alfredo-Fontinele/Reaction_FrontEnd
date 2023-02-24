@@ -13,19 +13,19 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import { FiChevronsDown, FiMenu } from "react-icons/fi";
+import { useAPINews } from "../../context/useApiNews";
 import { IItemMenuOptions, IMobileOpenProps } from "../../interfaces";
 import { Colors } from "../../styles/colors";
 import { MenuItems } from "./../menu-items/index";
 
 const ListMenuOptions: IItemMenuOptions[] = [
-    { name: "Profile", href: "" },
+    { name: "Profile", href: "/dashboard/profile" },
     { name: "Settings", href: "" },
-    { name: "Billigins", href: "" },
-    { name: "Help", href: "" },
     { name: "Sign Out", href: "/login" },
 ];
 
 export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
+    const { userAdmin } = useAPINews();
     return (
         <Flex
             ml={{ base: 0, md: 60 }}
@@ -80,7 +80,7 @@ export const MobileNav = ({ onOpen, ...rest }: IMobileOpenProps) => {
                                     ml="2"
                                 >
                                     <Text fontSize="sm" color={Colors.default}>
-                                        Alfredo Neto
+                                        {userAdmin}
                                     </Text>
                                     <Text fontSize="xs" color="gray.100">
                                         Admin
