@@ -1,6 +1,5 @@
-# API Utilizada para pesquisa => 'https://github.com/cyberboysumanjay/Inshorts-News-API'
-
-# Endpoints
+## API Utilizada para pesquisa.
+* https://github.com/cyberboysumanjay/Inshorts-News-API
 
 ## This API supports category wise news. Here is a complete list of all categories.
 
