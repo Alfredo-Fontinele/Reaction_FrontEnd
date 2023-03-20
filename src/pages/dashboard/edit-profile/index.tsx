@@ -12,16 +12,17 @@ import {
     Stack,
     Text,
 } from "@chakra-ui/react";
+
 import { Link } from "react-router-dom";
 import { Colors } from "../../../styles/colors";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Error } from "../../../components/error";
 import { PasswordField } from "../../components/password-field";
-import { OAuthButtonGroup } from "../../components/q-auth-button-group";
 import { EditProfileSchema } from "./../../../schemas/editProfileSchema";
 import { toast } from "react-toastify";
 import { useAPINews } from "../../../context/useApiNews";
+import * as S from "./style";
 
 export const EditProfile = () => {
     const { setUserAdmin } = useAPINews();
@@ -57,15 +58,7 @@ export const EditProfile = () => {
                 minH={"100vh"}
                 bg={`rgba(20,30,40,.5)`}
             >
-                <Flex
-                    flexDir={"column"}
-                    bg={`rgba(20,30,40,.5)`}
-                    p={10}
-                    borderRadius={10}
-                    gap={10}
-                    w={"full"}
-                    maxW={500}
-                >
+                <S.EditProfile>
                     <Flex
                         justifyContent={"space-between"}
                         alignItems={"center"}
@@ -133,7 +126,7 @@ export const EditProfile = () => {
                             </button>
                         </Stack>
                     </form>
-                </Flex>
+                </S.EditProfile>
             </Flex>
         </>
     );

@@ -19,7 +19,7 @@ import { Colors } from "../../styles/colors";
 import { MenuItems } from "./../menu-items/index";
 
 const ListMenuOptions: IItemMenuOptions[] = [
-    { name: "Profile", href: "/dashboard/profile" },
+    { name: "Profile", href: "" },
     { name: "Settings", href: "" },
     { name: "Sign Out", href: "/login" },
 ];

@@ -26,4 +26,5 @@ export interface IMobileOpenProps extends FlexProps {
 export interface IItemMenuOptions {
     name: string;
     href: string;
+    onClick?: Function;
 }

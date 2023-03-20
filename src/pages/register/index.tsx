@@ -1,7 +1,5 @@
 import {
     Box,
-    Button,
-    Checkbox,
     Container,
     Divider,
     Flex,
@@ -14,7 +12,6 @@ import {
     Text,
     useColorMode,
 } from "@chakra-ui/react";
-import { Logo } from "../components/logo";
 import { Link } from "react-router-dom";
 import { OAuthButtonGroup } from "../components/q-auth-button-group";
 import { PasswordField } from "../components/password-field";
@@ -96,7 +93,7 @@ export const Register = () => {
                                 style={{
                                     display: "flex",
                                     flexDirection: "column",
-                                    gap: 15,
+                                    gap: 25,
                                 }}
                             >
                                 <Stack spacing="5">
@@ -130,18 +127,6 @@ export const Register = () => {
                                         <Error text={errors.password.message} />
                                     )}
                                 </Stack>
-                                <HStack justify="space-between">
-                                    <Checkbox defaultChecked>
-                                        Remember me
-                                    </Checkbox>
-                                    <Button
-                                        variant="link"
-                                        colorScheme="blue"
-                                        size="sm"
-                                    >
-                                        Forgot password?
-                                    </Button>
-                                </HStack>
                                 <Stack spacing="6">
                                     <button
                                         type="submit"

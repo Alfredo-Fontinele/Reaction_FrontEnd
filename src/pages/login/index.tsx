@@ -13,7 +13,6 @@ import {
     Stack,
     Text,
 } from "@chakra-ui/react";
-import { Logo } from "../components/logo";
 import { Link } from "react-router-dom";
 import { OAuthButtonGroup } from "../components/q-auth-button-group";
 import { PasswordField } from "../components/password-field";
