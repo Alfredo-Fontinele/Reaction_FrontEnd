@@ -1,4 +1,4 @@
-## API Utilizada para pesquisa.
+## API temporariamente utilizada para pesquisa enquanto o back-end está sendo desenvolvido.
 * https://github.com/cyberboysumanjay/Inshorts-News-API
 
 ## This API supports category wise news. Here is a complete list of all categories.
